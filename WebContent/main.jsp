@@ -38,5 +38,7 @@
 			</tr>
 		<%}%>
 		</table>
+		<input type="button" onclick="location.href='logout.jsp';" value="로그아웃">
+		<input type="button" onclick="location.href='modifyInfo.jsp';" value="계정정보">
 </body>
 </html>

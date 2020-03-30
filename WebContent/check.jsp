@@ -26,10 +26,14 @@
 		String id2 = null;
 		String pwd2 = null;
 		String name2 = null;
+		String addr2 = null;
+		String tel2 = null;
 		if(rs.next()){
 			id2 = rs.getString("id");
 			pwd2 = rs.getString("pwd");
 			name2 = rs.getString("name");
+			addr2 = rs.getString("addr");
+			tel2 = rs.getString("tel");
 		}
 			out.print(request.getParameter("id")+" ");
 			out.print(id2);
@@ -39,7 +43,11 @@
 					alert(<%=request.getParameter("name")%>+"님 반갑습니다!")
 				</script>
 			<%
+				session.setAttribute("id", id2);
+				session.setAttribute("pwd", pwd2);
 				session.setAttribute("name", name2);
+				session.setAttribute("addr", addr2);
+				session.setAttribute("tel", tel2);
 				response.sendRedirect("main.jsp");
 			
 			}else{%>
