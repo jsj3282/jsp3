@@ -15,7 +15,7 @@
 	<%
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		//ip : localhost, 127.0.0.1, 실제 ip
-		String url = "jdbc:oracle:thin:@192.168.0.34:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.40:1521:xe";
 		String id = "jsp";
 		String pwd = "1234";
 		Connection con = DriverManager.getConnection(url,id,pwd);

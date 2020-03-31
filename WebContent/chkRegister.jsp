@@ -18,7 +18,7 @@
 	<%
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		//ip : localhost, 127.0.0.1, 실제 ip
-		String url = "jdbc:oracle:thin:@192.168.0.34:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.40:1521:xe";
 		String id = "jsp";
 		String pwd = "1234";
 		Connection con = DriverManager.getConnection(url,id,pwd);
@@ -34,12 +34,21 @@
 			pwd2 = rs.getString("pwd");
 			name2 = rs.getString("name");
 		}
-		if(id2!=null){
-			String sql2 = "insert into members values('" + request.getParameter("id")+","+
-			request.getParameter("pw")+","+request.getParameter("name")+","+ request.getParameter("addr")+","+
-			request.getParameter("tel")+"'";
+		if(id2==null){
+			String sql2 = "insert into members values('" + request.getParameter("id")
+			+"','" + request.getParameter("pw")+ "','" +request.getParameter("name")+"','"+ request.getParameter("addr")
+			+"','"+request.getParameter("tel") + "')";
+			//String sql2 = "insert into members values(" + request.getParameter("id") + "," 
+			//+ request.getParameter("pw") + "," + request.getParameter("name") + "," 
+			//+ request.getParameter("addr") + "," + request.getParameter("tel") + ")" + "'";
 			PreparedStatement ps2 = con.prepareStatement(sql2);
 			ps2.executeUpdate();
+			session.setAttribute("id", request.getParameter("id"));
+			session.setAttribute("pwd", request.getParameter("pw"));
+			session.setAttribute("name", request.getParameter("name"));
+			session.setAttribute("addr", request.getParameter("addr"));
+			session.setAttribute("tel", request.getParameter("tel"));
+			response.sendRedirect("main.jsp");
 			%>
 			<script>
 				alert("회원가입을 축하합니다.")

@@ -26,7 +26,7 @@
 		}
 	}
 	</script>
-	<form action="chkRegister" method="post">
+	<form action="chkRegister.jsp" method="post">
 	<input type="text" id = "id" name="id" placeholder="아이디"><label>(*필수 항목)</label><br>
 	<input type="text" id = "pw" name="pw" placeholder="비밀번호"><br>
 	<input type="text" id = "pwchk" name="pwchk" placeholder="비밀번호 확인" onchange="register2()"><label id="lbl">(*필수 항목)</label><br>
